@@ -1,0 +1,1 @@
+# WP Map Settings
