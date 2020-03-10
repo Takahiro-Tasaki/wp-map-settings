@@ -1,0 +1,32 @@
+テーブル作成
+CREATE TABLE `map_settings` (
+    `id` MEDIUMINT(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` TEXT NOT NULL,
+    `post_num` TINYTEXT NOT NULL,
+    `pref` TINYINT NOT NULL,
+    `address1` TEXT NOT NULL,
+    `address2` TEXT,
+    `map_url` TEXT,
+    `add_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `modify_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+テーブル削除
+DROP TABLE `map_settings`;
+
+新規追加
+INSERT INTO `map_settings`
+  (`name`, `post_num`, `pref`, `address1`, `address2`, `map_url`)
+VALUES
+  ("まなびと", "880-0805", 45, "宮崎市橘通東3-6-34", "クロノビル2F", "https://manabito.biz/");
+
+更新
+UPDATE `map_settings`
+SET
+  `name` = "株式会社まなびと",
+  `modify_date` = CURRENT_TIMESTAMP
+WHERE
+  `id` = 1;
+
+削除
+DELETE FROM `map_settings` WHERE `id` = 1
