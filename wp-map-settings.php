@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Sample Plugin(20200317)
+Plugin Name: WP Map Settings
 Plugin URI: 
 Description: プラグインの説明
 Version: 1.0.0
@@ -20,9 +20,15 @@ require_once( plugin_dir_path( __FILE__ ) . 'includes/wp-map-settings-admin-db.p
  */
 class Map_Settings {
 	public function __construct() {
+		register_activation_hook( __FILE__, array( $this, 'create_table' ) );
 		if( is_admin() ) {
 			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		}
+	}
+	
+	public function create_table () {
+		$db = new Map_Settings_Admin_Db();
+		$db->create_table();
 	}
 	
 	public function admin_menu () {

@@ -1,7 +1,8 @@
 <?php
 class Map_Settings_List {
 	public function __construct() {
-		new Map_Settings_Admin_Db();
+		$db = new Map_Settings_Admin_Db();
+		$db->insert();
 		$this->page_render();
 	}
 	
